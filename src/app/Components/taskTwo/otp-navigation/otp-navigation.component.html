@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="row d-flex justify-content-center align-items-center">
+        <div class="col-auto">
+            <p class="fs-3 fw-semibold text-center">OTP Auto Navigation</p>
+            <form
+                class="d-flex flex-column gap-2 justify-content-center align-items-center">
+                <label for="otp" class="form-label fw-medium fs-5">Please
+                    Provide OTP</label>
+                <div class="d-flex flex-row col-4 gap-3">
+                    @for(i of [0, 1, 2, 3]; track i) {
+                    <input type="text" name="otp" id="otp" maxlength="1"
+                        class="form-control text-center border-secondary"
+                        required #input (input)="jumpToNext(i)" (keyup.backspace)="jumpToPrev(i)">
+                    }
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
