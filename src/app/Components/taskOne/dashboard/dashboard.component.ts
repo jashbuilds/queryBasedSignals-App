@@ -20,4 +20,8 @@ export class DashboardComponent {
     this.videoComp()?.videoEl()?.nativeElement.play();
     this.isPlaying.set(true)
   }
+
+  onVideoEnded() {
+    this.isPlaying.set(false);
+  }
 }

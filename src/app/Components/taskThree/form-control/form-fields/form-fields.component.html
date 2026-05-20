@@ -1,0 +1,25 @@
+<div class="container mb-5">
+    <div class="row d-flex justify-content-center align-items-center">
+        <div class="col-8">
+            <p class="fs-3 fw-semibold text-center">Dynamic Form Tracker</p>
+
+            <form
+                class="d-flex gap-3 flex-column justify-content-center align-items-center">
+                @for(field of fields; track $index) {
+                <div
+                    class="d-flex gap-2 flex-row justify-content-center align-items-center">
+                    <label for="input"
+                        class="form-label text-nowrap align-items-center">Field
+                        - {{ $index + 1 }}</label>
+                    <input class="form-control" type="text" name="input"
+                        [(ngModel)]="field.value"
+                        #input required (input)="formValidity()">
+                    <button class="btn btn-secondary"
+                        (click)="removeEl($index)">Remove</button>
+                </div>
+                }
+            </form>
+            <ng-content />
+        </div>
+    </div>
+</div>

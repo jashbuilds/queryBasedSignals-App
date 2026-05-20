@@ -1,0 +1,8 @@
+<app-form-fields />
+<div
+    class="d-flex justify-content-center align-items-center gap-3">
+    <button type="button" (click)="addEl()"
+        class="btn btn-success">Add</button>
+    <button type="submit"
+        class="btn btn-primary" [disabled]="!isFormValid()">Submit</button>
+</div>

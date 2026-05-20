@@ -8,9 +8,19 @@
                     Provide OTP</label>
                 <div class="d-flex flex-row col-4 gap-3">
                     @for(i of [0, 1, 2, 3]; track i) {
-                    <input type="text" name="otp" id="otp" maxlength="1"
-                        class="form-control text-center border-secondary"
-                        required #input (input)="jumpToNext(i)" (keyup.backspace)="jumpToPrev(i)">
+                    <input type="text" 
+                            inputmode="numeric"
+                            name="otp" 
+                            id="otp" 
+                            pattern="[0-9]"
+                            maxlength="1" 
+                            (keypress)="preventChars($event)"
+                            class="form-control text-center border-secondary" 
+                            onkeypress="if(this.value.length==1) return false;"
+                            required 
+                            #input 
+                            (input)="jumpToNext(i)" 
+                            (keydown)="jumpToPrev($event, i)">
                     }
                 </div>
             </form>

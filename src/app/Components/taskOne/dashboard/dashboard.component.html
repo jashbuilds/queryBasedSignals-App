@@ -1,4 +1,4 @@
-<app-video-player>
+<app-video-player (onEnded)="onVideoEnded()">
     <div class="d-flex justify-content-center align-items-center mt-5">
         @if(isPlaying()) {
         <button class="border-0 bg-transparent" (click)="onPause()">

@@ -1,4 +1,4 @@
-import { Component, contentChild, ElementRef, viewChild } from '@angular/core';
+import { Component, contentChild, ElementRef, output, viewChild } from '@angular/core';
 import { DashboardComponent } from '../dashboard.component';
 
 @Component({
@@ -9,5 +9,11 @@ import { DashboardComponent } from '../dashboard.component';
 })
 export class VideoPlayerComponent {
   videoEl = viewChild<ElementRef<HTMLVideoElement>>('videoEl')
+
+  onEnded = output<void>()
+
+  handleVideoEnd() {
+    this.onEnded.emit()
+  }
 
 }
