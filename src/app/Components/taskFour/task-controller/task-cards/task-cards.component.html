@@ -7,7 +7,7 @@
                 <div class="card-header">
                     <div class="form-check">
                         <input class="form-check-input" type="checkbox" value
-                            [id]="'checkDefault-' + $index" #checkBox [(ngModel)]="task.completed" (change)="onChangeStatus($index)">
+                            [id]="'checkDefault-' + $index" [(ngModel)]="task.completed" (change)="onChangeStatus($index)">
                         <label class="form-check-label"
                             [for]="'checkDefault-' + $index">
                             {{ task.status }}

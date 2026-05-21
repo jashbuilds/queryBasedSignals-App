@@ -9,8 +9,6 @@ import { FormsModule } from '@angular/forms';
 })
 export class TaskCardsComponent {
 
-  checkBoxs = viewChildren<ElementRef<HTMLInputElement>>('checkBox')
-
   isActive = signal(true)
 
   tasks = [{
