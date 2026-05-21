@@ -1,4 +1,4 @@
-import { Component, contentChild, viewChild, viewChildren } from '@angular/core';
+import { Component, viewChild } from '@angular/core';
 import { TaskCardsComponent } from './task-cards/task-cards.component';
 
 @Component({

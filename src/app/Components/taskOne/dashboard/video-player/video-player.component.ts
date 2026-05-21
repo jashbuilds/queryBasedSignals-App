@@ -1,5 +1,4 @@
-import { Component, contentChild, ElementRef, output, viewChild } from '@angular/core';
-import { DashboardComponent } from '../dashboard.component';
+import { Component, ElementRef, output, viewChild } from '@angular/core';
 
 @Component({
   selector: 'app-video-player',

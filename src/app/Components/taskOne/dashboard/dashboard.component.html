@@ -1,13 +1,9 @@
 <app-video-player (onEnded)="onVideoEnded()">
     <div class="d-flex justify-content-center align-items-center mt-5">
-        @if(isPlaying()) {
-        <button class="border-0 bg-transparent" (click)="onPause()">
-            <img src="Icons/pause.svg" alt="pause" width="40" height="40">
+        <button class="border-0 bg-transparent"
+            (click)="isPlaying() ? onPause() : onPlay()">
+            <img [src]="isPlaying() ? 'Icons/pause.svg' : 'Icons/play.svg'"
+                alt="pause" width="40" height="40">
         </button>
-        } @else {
-        <button class="border-0 bg-transparent" (click)="onPlay()">
-            <img src="Icons/play.svg" alt="pause" width="40" height="40">
-        </button>
-        }
     </div>
 </app-video-player>

@@ -1,4 +1,4 @@
-import { Component, effect, ElementRef, input, viewChild, viewChildren } from '@angular/core';
+import { Component, effect, ElementRef, viewChildren } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 
 @Component({
@@ -40,7 +40,6 @@ export class OtpNavigationComponent {
       }
     }
   }
-
 
   preventChars(event: KeyboardEvent) {
     if (/[a-zA-z]/.test(event.key)) {

@@ -4,6 +4,6 @@
             <p class="fs-3 fw-semibold text-center">Video Dashboard</p>
             <video src="sample-video.mp4" height="500" (ended)="handleVideoEnd()" #videoEl class="ratio ratio-16x9"></video>
         </div>
+        <ng-content />
     </div>
 </div>
-<ng-content />

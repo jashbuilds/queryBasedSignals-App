@@ -1,4 +1,4 @@
-import { Component, contentChild, ElementRef, inject, signal, viewChildren } from '@angular/core';
+import { Component, ElementRef, inject, viewChildren } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { FormControlComponent } from '../form-control.component';
 
@@ -10,22 +10,19 @@ import { FormControlComponent } from '../form-control.component';
 })
 export class FormFieldsComponent {
 
-  private parent = inject(FormControlComponent)
+  private controlComponent = inject(FormControlComponent)
 
   fields = [{ value: '' }]
 
-  controls = viewChildren<ElementRef<HTMLInputElement>>('input')
+  inputFields = viewChildren<ElementRef<HTMLInputElement>>('input')
 
   formValidity() {
-    const allValid = this.controls().every(item => item.nativeElement.value.trim() !== '');
-    this.parent?.isFormValid.set(allValid);
+    const allInputValid = this.inputFields().every(item => item.nativeElement.value.trim() !== '');
+    this.controlComponent?.isFormValid.set(allInputValid);
   }
 
-  removeEl(index: number) {
+  removeField(index: number) {
     this.fields.splice(index, 1)
-  }
-
-  addEl() {
-    this.fields.push({ value: '' })
+    this.formValidity()
   }
 }
