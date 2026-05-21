@@ -1,9 +1,10 @@
 import { Component, effect, ElementRef, signal, viewChild, viewChildren } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { NgClass } from '@angular/common';
 
 @Component({
   selector: 'app-task-cards',
-  imports: [FormsModule],
+  imports: [FormsModule, NgClass],
   templateUrl: './task-cards.component.html',
   styleUrl: './task-cards.component.css',
 })
