@@ -13,7 +13,7 @@ export class OtpNavigationComponent {
 
   constructor() {
     effect(() => {
-      this.inputEl()[0].nativeElement.focus()
+      this.inputEl()[0]?.nativeElement.focus()
     })
   }
 
@@ -34,6 +34,9 @@ export class OtpNavigationComponent {
         event.preventDefault();
         inputs[index].nativeElement.value = '';
         inputs[index - 1].nativeElement.focus();
+      } else if (index === 0) {
+        inputs[index].nativeElement.value = '';
+        inputs[index].nativeElement.focus();
       }
     }
   }
