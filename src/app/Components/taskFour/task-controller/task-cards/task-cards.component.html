@@ -14,11 +14,7 @@
                             [(ngModel)]="task.completed">
                         <label class="form-check-label fw-semibold"
                             [for]="'checkDefault-' + $index">
-                            @if(task.completed) {
-                            {{ 'Complete' }}
-                            } @else {
-                            {{ 'Draft' }}
-                            }
+                            {{ task.completed ? 'Completed' : 'Draft' }}
                         </label>
                     </div>
                 </div>

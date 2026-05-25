@@ -11,8 +11,6 @@ import { Task } from '../../tasks.model';
 })
 export class TaskCardsComponent {
 
-  isActive = signal(true)
-
   tasks = signal<Task[]>([{
     task: 'House Cleaning',
     completed: false
