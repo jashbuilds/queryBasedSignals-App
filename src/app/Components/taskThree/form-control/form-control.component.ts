@@ -1,4 +1,4 @@
-import { Component, signal, viewChild } from '@angular/core';
+import { Component, effect, signal, viewChild } from '@angular/core';
 import { FormFieldsComponent } from "./form-fields/form-fields.component";
 
 @Component({
@@ -12,23 +12,11 @@ export class FormControlComponent {
 
   fieldsComponent = viewChild(FormFieldsComponent)
 
-  addField() {
-    const component = this.fieldsComponent()
-    component?.fields.push({ value: '' })
-
-    setTimeout(() => {
-      component?.formValidity();
-    }, 0);
+  addNewField() {
+    this.fieldsComponent()?.addField()
   }
 
   onSubmit() {
-    const component = this.fieldsComponent()
-
-    this.fieldsComponent()?.fields.forEach((field) => {
-      field.value = ''
-    })
-    setTimeout(() => {
-      component?.formValidity();
-    }, 0);
+    this.fieldsComponent()?.onSubmitForm()
   }
 }

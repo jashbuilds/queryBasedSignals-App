@@ -12,12 +12,12 @@ export class DashboardComponent {
   videoComp = viewChild(VideoPlayerComponent)
 
   onPause() {
-    this.videoComp()?.videoEl()?.nativeElement.pause();
+    this.videoComp()?.handleVideoPause();
     this.isPlaying.set(false)
   }
 
   onPlay() {
-    this.videoComp()?.videoEl()?.nativeElement.play();
+    this.videoComp()?.handleVideoPlay();
     this.isPlaying.set(true)
   }
 

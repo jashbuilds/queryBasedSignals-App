@@ -8,8 +8,15 @@ import { Component, ElementRef, output, viewChild } from '@angular/core';
 })
 export class VideoPlayerComponent {
   videoEl = viewChild<ElementRef<HTMLVideoElement>>('videoEl')
-
   onEnded = output<void>()
+
+  handleVideoPause() {
+    this.videoEl()?.nativeElement.pause()
+  }
+
+  handleVideoPlay() {
+    this.videoEl()?.nativeElement.play()
+  }
 
   handleVideoEnd() {
     this.onEnded.emit()

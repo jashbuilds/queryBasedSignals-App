@@ -12,18 +12,10 @@ export class TaskControllerComponent {
   taskCardComp = viewChild(TaskCardsComponent)
 
   completeAll() {
-    const tasks = this.taskCardComp()?.tasks
-    tasks?.forEach((task) => {
-      task.completed = true
-      task.status = 'Complete'
-    })
+    this.taskCardComp()?.onCompleteAll()
   }
 
   draftAll() {
-    const tasks = this.taskCardComp()?.tasks
-    tasks?.forEach((task) => {
-      task.completed = false
-      task.status = 'Draft'
-    })
+    this.taskCardComp()?.onDraftAll()
   }
 }

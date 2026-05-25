@@ -1,6 +1,7 @@
 import { Component, signal } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { NgClass } from '@angular/common';
+import { Task } from '../../tasks.model';
 
 @Component({
   selector: 'app-task-cards',
@@ -12,33 +13,32 @@ export class TaskCardsComponent {
 
   isActive = signal(true)
 
-  tasks = [{
+  tasks = signal<Task[]>([{
     task: 'House Cleaning',
-    status: 'Draft',
     completed: false
   },
   {
     task: 'Get Some Veggies',
-    status: 'Complete',
     completed: true
   },
   {
     task: 'Pick Children from School',
-    status: 'Draft',
     completed: false
   },
   {
     task: 'Car Wash',
-    status: 'Complete',
     completed: true
   },
   {
     task: 'Gardening',
-    status: 'Complete',
     completed: true
-  }]
+  }])
 
-  onChangeStatus(index: number) {
-    this.tasks[index].status = this.tasks[index].completed ? 'Complete' : 'Draft'
+  onCompleteAll() {
+    this.tasks.update(tasks => tasks.map(task => ({ ...task, completed: true })))
+  }
+
+  onDraftAll() {
+    this.tasks.update(tasks => tasks.map(task => ({ ...task, completed: false })))
   }
 }

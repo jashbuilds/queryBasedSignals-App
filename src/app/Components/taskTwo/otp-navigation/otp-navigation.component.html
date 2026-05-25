@@ -4,19 +4,18 @@
             <p class="fs-3 fw-semibold text-center">OTP Auto Navigation</p>
             <form
                 class="d-flex flex-column gap-2 justify-content-center align-items-center">
-                <label for="otp" class="form-label fw-medium fs-5">Please
+                <label for="otp-0" class="form-label fw-medium fs-5">Please
                     Provide OTP</label>
                 <div class="d-flex flex-row col-4 gap-3">
                     @for(i of [0, 1, 2, 3]; track i) {
                     <input type="text" 
                             inputmode="numeric"
                             name="otp" 
-                            id="otp" 
+                            id="otp-{{i}}" 
                             pattern="[0-9]"
                             maxlength="1" 
                             (keypress)="preventChars($event)"
-                            class="form-control text-center border-secondary" 
-                            onkeypress="if(this.value.length==1) return false;"
+                            class="form-control text-center border-secondary"
                             required 
                             #input 
                             (input)="jumpToNext(i)" 

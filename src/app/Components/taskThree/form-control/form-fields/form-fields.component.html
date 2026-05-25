@@ -12,7 +12,7 @@
                         class="form-label text-nowrap align-items-center">Field
                         - {{ $index + 1 }}</label>
                     <input class="form-control" type="text" name="input"
-                        [(ngModel)]="field.value"
+                        [value]="field.value"
                         #input required (input)="formValidity()">
                     <button class="btn btn-secondary"
                         (click)="removeField($index)">Remove</button>

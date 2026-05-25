@@ -19,8 +19,9 @@ export class OtpNavigationComponent {
 
   jumpToNext(index: number) {
     const inputs = this.inputEl()
+    const currentInput = inputs[index].nativeElement
 
-    if (index < inputs.length - 1) {
+    if (currentInput.value && index < inputs.length - 1) {
       inputs[index + 1].nativeElement.focus()
     }
   }
@@ -30,9 +31,8 @@ export class OtpNavigationComponent {
     if (event.key === 'Backspace') {
       const inputs = this.inputEl();
 
-      if (index > 0) {
+      if (index > 0 && inputs[index].nativeElement.value === '') {
         event.preventDefault();
-        inputs[index].nativeElement.value = '';
         inputs[index - 1].nativeElement.focus();
       } else if (index === 0) {
         inputs[index].nativeElement.value = '';
@@ -41,9 +41,12 @@ export class OtpNavigationComponent {
     }
   }
 
+
   preventChars(event: KeyboardEvent) {
-    if (/[a-zA-z]/.test(event.key)) {
-      event.preventDefault();
+
+    if (/^\d+$/.test(event.key) && event.key.length === 1) {
+      return;
     }
+    event.preventDefault();
   }
 }
